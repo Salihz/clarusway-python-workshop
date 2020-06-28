@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#Step-1: Update ec2 linux machine
+yum update -y
+
+#STEP-2: install python3
+yum install python3 -y
+
+#STEP-3: Install Python 3 Flask framework.
+sudo pip3 install flask
+
+#STEP-4: if not exist install wget - aws created t2.micro ec2 with wget installed already
+yum install wget -y
+
+#STEP-5: List the installed packages but no need to add this in user data
+#pip3 list
+
+#STEP-5: download content to host (it's the python file raw format link from github)
+wget https://raw.githubusercontent.com/Salihz/clarusway-python-workshop/master/hands-on-flask-01-hello-world-app-on-ec2-linux2/hello-world-app.py
+
+#STEP-6: Run the web application
+sudo python3 hello-world-app.py
+
+# STEP-7: Connect the Hello World application from the web browser
+# Copy Instance DNS and go to the address in yourbrowser
+
+#Connect the Hello World application from the terminal with curl command.
+# curl + Instance DNS
